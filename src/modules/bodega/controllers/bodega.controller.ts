@@ -35,7 +35,7 @@ export class BodegaController {
   }
 
   @Get('producto')
-  async obtenerProductos(
+  async obtenerProducto(
     @Param('id', new ParseUUIDPipe({ version: '4' })) id: string,
   ): Promise<ProductoEntity> {
     return await this.obtenerProductoUseCase.execute(id);
