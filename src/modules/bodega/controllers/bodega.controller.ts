@@ -1,5 +1,5 @@
 // Libraries
-import { Body, Controller, Post } from '@nestjs/common';
+import { Body, Controller, Get, Post } from '@nestjs/common';
 
 // Data transfer objects
 import { NuevoProductoDTO } from '../data-transfer-objects';
@@ -8,13 +8,21 @@ import { NuevoProductoDTO } from '../data-transfer-objects';
 import { ProductoEntity } from '../../../common/database';
 
 // Use cases
-import { CrearProductoUseCase } from '../use-cases';
+import { CrearProductoUseCase, ObtenerProductosUseCase } from '../use-cases';
 
 @Controller('v1/bodega')
 export class BodegaController {
-  constructor(private readonly crearProductoUseCase: CrearProductoUseCase) {}
+  constructor(
+    private readonly crearProductoUseCase: CrearProductoUseCase,
+    private readonly obtenerProductosUseCase: ObtenerProductosUseCase,
+  ) {}
 
-  @Post()
+  @Get('productos')
+  async obtenerTodosLosProductos(): Promise<ProductoEntity[]> {
+    return await this.obtenerProductosUseCase.execute();
+  }
+
+  @Post('producto')
   async nuevoProducto(
     @Body() producto: NuevoProductoDTO,
   ): Promise<ProductoEntity> {

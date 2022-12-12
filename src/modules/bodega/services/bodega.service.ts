@@ -14,6 +14,10 @@ import { ProductoService } from '../../../common/database';
 export class BodegaService {
   constructor(private readonly productoService: ProductoService) {}
 
+  async obtenerTodosLosProductos(): Promise<ProductoEntity[]> {
+    return await this.productoService.findAll();
+  }
+
   async crearProducto(producto: NuevoProductoDTO): Promise<ProductoEntity> {
     const newProducto = new ProductoEntity();
     newProducto.nombre = producto.nombre;
