@@ -2,10 +2,10 @@
 import { Injectable } from '@nestjs/common';
 
 // Data transfer objects
-import { NuevoProductoDTO } from '../data-transfer-objects/nuevo-producto.dto';
+import { NuevoProductoDTO } from '../data-transfer-objects';
 
 // Entities
-import { ProductoEntity } from '../../../common/database/postgresql/entities';
+import { ProductoEntity } from '../../../common/database';
 
 // Services
 import { BodegaService } from '../services/bodega.service';

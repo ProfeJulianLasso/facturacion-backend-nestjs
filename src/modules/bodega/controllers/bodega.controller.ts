@@ -2,13 +2,13 @@
 import { Body, Controller, Post } from '@nestjs/common';
 
 // Data transfer objects
-import { NuevoProductoDTO } from '../data-transfer-objects/nuevo-producto.dto';
+import { NuevoProductoDTO } from '../data-transfer-objects';
 
 // Entities
-import { ProductoEntity } from '../../../common/database/postgresql/entities/producto.entity';
+import { ProductoEntity } from '../../../common/database';
 
 // Use cases
-import { CrearProductoUseCase } from '../use-cases/crear-producto.use-case';
+import { CrearProductoUseCase } from '../use-cases';
 
 @Controller('v1/bodega')
 export class BodegaController {
