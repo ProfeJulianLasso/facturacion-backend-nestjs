@@ -1,7 +1,12 @@
+// Libraries
 import { join } from 'path';
 import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
-import { CommonModule } from '../common/common.module';
+
+// Modules
+import { ClienteModule } from '../cliente/cliente.module';
+import { BodegaModule } from '../bodega/bodega.module';
+import { VentasModule } from '../ventas/ventas.module';
 
 @Module({
   imports: [
@@ -13,7 +18,9 @@ import { CommonModule } from '../common/common.module';
       ),
       isGlobal: true,
     }),
-    CommonModule,
+    BodegaModule,
+    ClienteModule,
+    VentasModule,
   ],
   controllers: [],
   providers: [],

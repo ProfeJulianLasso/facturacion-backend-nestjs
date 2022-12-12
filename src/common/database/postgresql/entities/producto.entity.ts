@@ -19,7 +19,7 @@ export class ProductoEntity {
   nombre: string;
 
   @Column('bigint', { name: 'producto_valor' })
-  valor: string;
+  valor: number;
 
   @Column('boolean', { name: 'producto_estado', default: () => 'true' })
   estado: boolean;
