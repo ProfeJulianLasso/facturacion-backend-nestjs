@@ -18,6 +18,10 @@ export class BodegaService {
     return await this.productoService.findAll();
   }
 
+  async obtenerProducto(id: string): Promise<ProductoEntity> {
+    return await this.productoService.findOneById(id);
+  }
+
   async crearProducto(producto: NuevoProductoDTO): Promise<ProductoEntity> {
     const newProducto = new ProductoEntity();
     newProducto.nombre = producto.nombre;
