@@ -1,5 +1,5 @@
 // Configs
-import { PostgreSQLConfig } from './postgresql/postgresql.config';
+import { PostgreSQLConfig as ConfigDataBase } from './postgresql/postgresql.config';
 
 // Entities
 import {
@@ -20,7 +20,7 @@ import {
 } from './postgresql/repositories';
 
 export {
-  PostgreSQLConfig,
+  ConfigDataBase,
   ClienteEntity,
   DescuentoEntity,
   DetalleFacturaEntity,

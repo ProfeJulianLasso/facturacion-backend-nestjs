@@ -3,14 +3,16 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 // Configs
-import { PostgreSQLConfig } from './database/postgresql/postgresql.config';
+import { ConfigDataBase } from './database';
 
 // Services
-import { ClienteService } from './database/postgresql/repositories/cliente.service';
-import { FacturaService } from './database/postgresql/repositories/factura.service';
-import { ProductoService } from './database/postgresql/repositories/producto.service';
-import { DescuentoService } from './database/postgresql/repositories/descuento.service';
-import { DetalleFacturaService } from './database/postgresql/repositories/detalle-factura.service';
+import {
+  ClienteService,
+  FacturaService,
+  ProductoService,
+  DescuentoService,
+  DetalleFacturaService,
+} from './database';
 
 // Entities
 import {
@@ -19,11 +21,11 @@ import {
   DetalleFacturaEntity,
   FacturaEntity,
   ProductoEntity,
-} from './database/postgresql/entities';
+} from './database';
 
 @Module({
   imports: [
-    TypeOrmModule.forRootAsync({ useClass: PostgreSQLConfig }),
+    TypeOrmModule.forRootAsync({ useClass: ConfigDataBase }),
     TypeOrmModule.forFeature([
       ClienteEntity,
       DescuentoEntity,
