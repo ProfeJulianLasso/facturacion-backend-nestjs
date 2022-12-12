@@ -1,7 +1,7 @@
 // Libraries
 import { IsNumber, IsPositive, IsString, Length } from 'class-validator';
 
-export class NuevoProducto {
+export class NuevoProductoDTO {
   @IsString()
   @Length(3, 500)
   nombre: string;

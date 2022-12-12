@@ -2,22 +2,19 @@
 import { Injectable } from '@nestjs/common';
 
 // Data transfer objects
-import { NuevoProducto } from '../data-transfer-objects/nuevo-producto.dto';
+import { NuevoProductoDTO } from '../data-transfer-objects/nuevo-producto.dto';
 
 // Entities
 import { ProductoEntity } from '../../../common/database/postgresql/entities';
 
 // Services
-import { ProductoService } from '../../../common/database/postgresql/repositories/producto.service';
+import { BodegaService } from '../services/bodega.service';
 
 @Injectable()
 export class CrearProductoUseCase {
-  constructor(private readonly productoService: ProductoService) {}
+  constructor(private readonly bodegaService: BodegaService) {}
 
-  async execute(producto: NuevoProducto): Promise<ProductoEntity> {
-    const newProducto = new ProductoEntity();
-    newProducto.nombre = producto.nombre;
-    newProducto.valor = producto.valor;
-    return await this.productoService.create(newProducto);
+  async execute(producto: NuevoProductoDTO): Promise<ProductoEntity> {
+    return await this.bodegaService.crearProducto(producto);
   }
 }
