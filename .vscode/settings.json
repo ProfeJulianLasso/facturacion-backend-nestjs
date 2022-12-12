@@ -10,5 +10,15 @@
             "username": "root",
             "password": "password"
         }
+    ],
+    "cSpell.words": [
+        "actived",
+        "pkcliente",
+        "pkdescuento",
+        "pkdetalle",
+        "pkfactura",
+        "pkproducto",
+        "postgresql",
+        "telefono"
     ]
 }
